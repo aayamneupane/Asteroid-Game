@@ -1,0 +1,120 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://arts/space_station_bg_with_frames.png" type="Texture" id=1]
+[ext_resource path="res://arts/playersprite_same_size/Background.png" type="Texture" id=2]
+[ext_resource path="res://arts/playersprite_same_size/player_sprite1.png" type="Texture" id=3]
+[ext_resource path="res://arts/playersprite_same_size/player_sprite2.png" type="Texture" id=4]
+[ext_resource path="res://space_station.gd" type="Script" id=5]
+[ext_resource path="res://Fonts/real-delight/Real Delight.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+shadow_color = Color( 0, 0, 0, 0.678431 )
+shadow_size = 80
+shadow_offset = Vector2( 5, 5 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 17
+use_filter = true
+extra_spacing_top = 2
+extra_spacing_bottom = 2
+extra_spacing_char = 2
+extra_spacing_space = 2
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 18
+font_data = ExtResource( 6 )
+
+[node name="space_station" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 33, 1076 )
+script = ExtResource( 5 )
+
+[node name="bg" type="TextureRect" parent="."]
+margin_right = 480.0
+margin_bottom = 720.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="spaceship_container" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 300.0
+margin_top = 135.0
+margin_right = 182.0
+margin_bottom = 1220.0
+rect_scale = Vector2( 0.283055, 0.283055 )
+custom_constants/separation = 250
+
+[node name="space_ship1" type="Button" parent="spaceship_container"]
+margin_right = 362.0
+margin_bottom = 418.0
+custom_styles/hover = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/normal = SubResource( 6 )
+icon = ExtResource( 4 )
+
+[node name="space_ship2" type="Button" parent="spaceship_container"]
+margin_top = 668.0
+margin_right = 362.0
+margin_bottom = 1055.0
+custom_styles/hover = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/normal = SubResource( 6 )
+icon = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="space_ship3" type="Button" parent="spaceship_container"]
+margin_top = 1305.0
+margin_right = 362.0
+margin_bottom = 1787.0
+custom_styles/hover = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/normal = SubResource( 6 )
+icon = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="descriptions" type="Label" parent="."]
+margin_left = 34.0
+margin_top = 200.0
+margin_right = 238.0
+margin_bottom = 483.0
+custom_fonts/font = SubResource( 9 )
+autowrap = true
+
+[node name="back_button" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -64.0
+margin_top = 13.0
+margin_right = -15.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 10 )
+text = "Back"
+
+[connection signal="mouse_entered" from="spaceship_container/space_ship1" to="." method="_on_space_ship1_mouse_entered"]
+[connection signal="pressed" from="spaceship_container/space_ship1" to="." method="_on_space_ship1_pressed"]
+[connection signal="mouse_entered" from="spaceship_container/space_ship2" to="." method="_on_space_ship2_mouse_entered"]
+[connection signal="pressed" from="spaceship_container/space_ship2" to="." method="_on_space_ship2_pressed"]
+[connection signal="mouse_entered" from="spaceship_container/space_ship3" to="." method="_on_space_ship3_mouse_entered"]
+[connection signal="pressed" from="spaceship_container/space_ship3" to="." method="_on_space_ship3_pressed"]
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]

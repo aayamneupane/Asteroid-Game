@@ -1,0 +1,113 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Fonts/real-delight/Real Delight.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://HUD.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 1 )
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -1124, -347 )
+script = ExtResource( 2 )
+
+[node name="game_over" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -25.5
+margin_right = 100.0
+margin_bottom = 25.5
+custom_fonts/font = SubResource( 1 )
+align = 1
+valign = 1
+
+[node name="score_text" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -125.0
+margin_top = 21.0
+margin_right = -45.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 2 )
+text = "Score"
+
+[node name="score" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -72.0
+margin_top = 8.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 3 )
+align = 1
+valign = 1
+
+[node name="difficulty_mode" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -362.0
+margin_top = -703.0
+margin_right = -251.0
+margin_bottom = -671.0
+custom_fonts/font = SubResource( 4 )
+text = "Difficulty Mode"
+align = 1
+valign = 1
+
+[node name="difficulty_mode_button" type="CheckButton" parent="difficulty_mode"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 56.5
+margin_top = -4.0
+margin_right = 132.5
+margin_bottom = 36.0
+
+[node name="life" type="Label" parent="."]
+margin_left = 15.0
+margin_top = 59.0
+margin_right = 55.0
+margin_bottom = 82.0
+custom_fonts/font = SubResource( 5 )
+text = "Lives"
+
+[node name="health_bar" type="ProgressBar" parent="life"]
+margin_left = -3.0
+margin_top = 28.0
+margin_right = 131.0
+margin_bottom = 47.0
+value = 100.0
+
+[node name="high_score_text" type="Label" parent="."]
+margin_left = 354.0
+margin_top = 65.0
+margin_right = 427.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 6 )
+text = "High Score"
+
+[node name="high_score" type="Label" parent="high_score_text"]
+margin_top = 30.0
+margin_right = 90.0
+margin_bottom = 59.0

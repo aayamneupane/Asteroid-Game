@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://arts/player_sprite/player_sprite1.png" type="Texture" id=1]
+[ext_resource path="res://player.gd" type="Script" id=2]
+[ext_resource path="res://arts/fire_sprite_frames/frame_6.png" type="Texture" id=3]
+[ext_resource path="res://arts/playersprite_same_size/Background.png" type="Texture" id=4]
+[ext_resource path="res://arts/fire_sprite_frames/frame_7.png" type="Texture" id=5]
+[ext_resource path="res://arts/fire_sprite_frames/frame_9.png" type="Texture" id=6]
+[ext_resource path="res://arts/fire_sprite_frames/frame_10.png" type="Texture" id=7]
+[ext_resource path="res://arts/fire_sprite_frames/frame_8.png" type="Texture" id=8]
+[ext_resource path="res://arts/playersprite_same_size/player_sprite2.png" type="Texture" id=9]
+[ext_resource path="res://arts/fire_sprite_frames/frame_5.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "fire_animation",
+"speed": 15.0
+} ]
+
+[node name="player" type="Area2D"]
+scale = Vector2( 0.75, 0.75 )
+gravity = 0.0
+script = ExtResource( 2 )
+
+[node name="rocket" type="Sprite" parent="."]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="collison_map_rocket" type="CollisionPolygon2D" parent="."]
+scale = Vector2( 1.7, 1.7 )
+polygon = PoolVector2Array( 0, -41.3333, -1.33333, -38.6667, -2.66667, -38.6667, -8, -34.6667, -9.33333, -32, -12, -29.3333, -16, -20, -17.3333, -18.6667, -16, -17.3333, -17.3333, -13.3333, -17.3333, -6.66667, -17.3333, 0, -14.6667, 12, -13.3333, 20, -13.3333, 21.3333, -18.6667, 20, -17.3333, 32, -14.6667, 38.6667, -12, 42.6667, -12, 26.6667, -10.6667, 29.3333, -9.33333, 34.6667, -8, 34.6667, -6.66667, 37.3333, 2.66667, 37.3333, 2.66667, 42.6667, 4, 42.6667, 5.33333, 37.3333, 8, 37.3333, 8, 34.6667, 9.33333, 34.6667, 12, 26.6667, 12, 42.6667, 16, 36, 18.6667, 25.3333, 18.6667, 18.6667, 13.3333, 21.3333, 16, 10.6667, 17.3333, 0, 18.6667, -6.66667, 17.3333, -17.3333, 17.3333, -20, 16, -20, 13.3333, -28, 8, -34.6667, 5.33333, -37.3333, 1.33333, -40 )
+
+[node name="fire_animation" type="AnimatedSprite" parent="."]
+position = Vector2( 2.66673, 106.667 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 1 )
+animation = "fire_animation"
+frame = 1
+playing = true
+flip_v = true
+
+[node name="small_spaceship" type="Sprite" parent="."]
+position = Vector2( 0, 41.3333 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 9 )
+
+[node name="collison_map_small_spaceship" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0, 41.3333 )
+scale = Vector2( 0.2, 0.2 )
+polygon = PoolVector2Array( -128.296, -67.9214, -128.296, -90.5618, -113.202, -135.843, -83.015, -173.577, -60.3745, -188.67, -15.0936, -203.764, 22.6405, -203.764, 52.8277, -196.217, 83.015, -181.124, 113.202, -143.39, 128.296, -105.655, 135.843, -83.015, 135.843, -67.9214, 150.936, -37.7341, 166.03, -7.54682, 173.577, 37.7341, 173.577, 83.015, 166.03, 128.296, 150.936, 188.67, 128.296, 128.296, 98.1086, 22.6405, 75.4682, 37.7341, 60.3745, 52.8277, 60.3745, 83.015, 37.7341, 90.5618, 15.0936, 98.1086, 7.54682, 211.311, -7.54682, 98.1086, -52.8277, 90.5618, -45.2809, 52.8277, -83.015, 30.1873, -90.5618, 22.6405, -150.936, 188.67, -166.03, 128.296, -173.577, 75.4682, -173.577, 37.7341, -158.483, -15.0936, -143.39, -45.2809 )
+
+[node name="astronaut_collison_map" type="CollisionPolygon2D" parent="."]
+scale = Vector2( 0.1, 0.1 )
+polygon = PoolVector2Array( -390, -290, -440, -250, -490, -210, -520, -160, -540, -100, -540, 0, -560, 30, -550, 80, -510, 130, -490, 140, -340, 630, -200, 650, -50.0002, 620, 9.99976, 580, 49.9998, 620, 120, 620, 170, 600, 230, 610, 340, 610, 440, 510, 510, 490, 560, 400, 560, 280, 530, 260, 490, 150, 430, 70, 330, 70, 300, 80, 380, 20, 450, -10, 480, -70, 480, -160, 440, -200, 430, -280, 370, -370, 260, -450, 160, -480, 49.9998, -470, -70.0002, -400, -150, -310, -220, -330, -260, -630, -310, -650, -360, -620, -320, -320 )
+
+[node name="astronaut" type="Sprite" parent="."]
+position = Vector2( -24, 0 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 1 )
